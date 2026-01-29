@@ -1,146 +1,114 @@
+<?php
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Manas Sir Computer Classes</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- W3.CSS -->
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<!-- Custom CSS -->
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Manas Sir Computer Classes | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<div class="w3-top">
-  <div class="w3-bar w3-dark-gray w3-padding">
-    <span class="w3-bar-item logo">Manas<span>Sir</span></span>
+<!-- HEADER -->
+<header class="header">
+    <div class="container header-flex">
+        <div class="logo">MS <span>Manas Sir Computer Classes</span></div>
+        <nav>
+    <a href="index.php">Home</a>
+    <a href="courses.php">Courses</a>
+    <a href="online-test.php">Online Test</a>
+    <a href="contact.php">Contact</a>
 
-    <a href="#" class="w3-bar-item w3-button w3-hide-small">Home</a>
-    <a href="tutorials.html" class="w3-bar-item w3-button w3-hide-small">Tutorials</a>
-    <a href="courses.html" class="w3-bar-item w3-button w3-hide-small">Courses</a>
-    <a href="blog.html" class="w3-bar-item w3-button w3-hide-small">Blog</a>
-    <a href="contact.html" class="w3-bar-item w3-button w3-hide-small">Contact</a>
+    <?php if(isset($_SESSION['user_id'])){ ?>
+        <a href="dashboard.php">Dashboard</a>
+        <a href="auth/logout.php" class="btn">Logout</a>
+    <?php } else { ?>
+        <a href="auth/login.php" class="btn">Login</a>
+    <?php } ?>
+</nav>
 
-    <a href="javascript:void(0)" 
-       class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium"
-       onclick="openMenu()">☰</a>
-  </div>
-</div>
-
-<!-- MOBILE MENU -->
-<div id="mobileMenu" class="w3-bar-block w3-dark-gray w3-hide w3-hide-large w3-hide-medium">
-  <a href="#" class="w3-bar-item w3-button">Home</a>
-  <a href="tutorials.html" class="w3-bar-item w3-button">Tutorials</a>
-  <a href="courses.html" class="w3-bar-item w3-button">Courses</a>
-  <a href="blog.html" class="w3-bar-item w3-button">Blog</a>
-  <a href="contact.html" class="w3-bar-item w3-button">Contact</a>
-</div>
+    </div>
+</header>
 
 <!-- HERO SECTION -->
-<section class="hero w3-container">
-  <div class="w3-row-padding w3-padding-64">
-    <div class="w3-col l6 m12">
-      <h1>Learn Computer & Technology Easily</h1>
-      <p>
-        Simple computer education for students and beginners.<br>
-        O Level, CCC, ADCA & practical learning.
-      </p>
-      <a href="#" class="w3-button w3-blue w3-round-large w3-margin-top">
-        Start Learning
-      </a>
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h1>Learn Computer Skills &<br><span>Crack Online Exams</span></h1>
+            <p>CCC | O Level | DCA | ADCA | Programming | Tally | Web Design</p>
+            <div class="hero-buttons">
+                <a href="courses.php" class="btn">View Courses</a>
+                <a href="online-test.php" class="btn-outline">Start Online Test</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="assets/images/hero.png" alt="Computer Learning">
+        </div>
     </div>
-
-    <div class="w3-col l6 m12 w3-center">
-      <img src="hero.png" class="hero-img" alt="Technology">
-    </div>
-  </div>
 </section>
 
-<!-- COURSES -->
-<section class="w3-container w3-padding-64">
-  <h2 class="w3-center">Popular Courses</h2>
-
-  <div class="w3-row-padding w3-margin-top">
-    <div class="w3-col l4 m6 s12">
-      <div class="card">
-        <img src="course1.jpg">
-        <h3>O Level</h3>
-        <p>Government computer course with theory & practical.</p>
-      </div>
+<!-- FEATURES -->
+<section class="features">
+    <div class="container features-grid">
+        <div class="feature">
+            <h3>Practical Computer Training</h3>
+            <p>Hands-on practice with real software & tools</p>
+        </div>
+        <div class="feature">
+            <h3>Online Computer Exams</h3>
+            <p>MCQ based & exam pattern tests</p>
+        </div>
+        <div class="feature">
+            <h3>Instant Result & History</h3>
+            <p>Test result, score & attempt history</p>
+        </div>
     </div>
-
-    <div class="w3-col l4 m6 s12">
-      <div class="card">
-        <img src="course2.jpg">
-        <h3>CCC</h3>
-        <p>Basic computer knowledge for all students.</p>
-      </div>
-    </div>
-
-    <div class="w3-col l4 m6 s12">
-      <div class="card">
-        <img src="course3.jpg">
-        <h3>ADCA</h3>
-        <p>Advanced diploma in computer applications.</p>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- BLOG -->
-<section class="w3-container w3-padding-64 w3-dark-gray">
-  <h2 class="w3-center">Latest Tutorials</h2>
-
-  <div class="w3-row-padding w3-margin-top">
-    <div class="w3-col l4 m6 s12">
-      <div class="card dark">
-        <h3>What is Computer?</h3>
-        <p>Basic introduction for beginners.</p>
-        <small>By Manas Sir</small>
-      </div>
+<!-- COMPUTER COURSES -->
+<section class="courses">
+    <div class="container">
+        <h2>Our Computer Courses</h2>
+        <div class="course-grid">
+            <div class="course-card">CCC</div>
+            <div class="course-card">O Level</div>
+            <div class="course-card">DCA</div>
+            <div class="course-card">ADCA</div>
+            <div class="course-card">Tally Prime</div>
+            <div class="course-card">Web Design</div>
+            <div class="course-card">Python</div>
+            <div class="course-card">C / C++</div>
+        </div>
     </div>
-
-    <div class="w3-col l4 m6 s12">
-      <div class="card dark">
-        <h3>O Level Exam Pattern</h3>
-        <p>Syllabus and exam details.</p>
-        <small>By Manas Sir</small>
-      </div>
-    </div>
-
-    <div class="w3-col l4 m6 s12">
-      <div class="card dark">
-        <h3>Data Processing</h3>
-        <p>Easy explanation with examples.</p>
-        <small>By Manas Sir</small>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- YOUTUBE -->
-<section class="w3-container w3-padding-64 w3-center">
-  <h2>Learn with Manas Sir</h2>
-  <p>Free computer education on YouTube</p>
-  <a href="https://youtube.com/@manassircomputerclasses"
-     target="_blank"
-     class="w3-button w3-red w3-round-large">
-     Subscribe Channel
-  </a>
+<!-- ONLINE TEST -->
+<section class="live">
+    <div class="container live-grid">
+        <div>
+            <img src="assets/images/live.png" alt="Online Test">
+        </div>
+        <div>
+            <h2>Online Computer Test Portal</h2>
+            <ul>
+                <li>CCC Online Test</li>
+                <li>O Level Paper-wise Test</li>
+                <li>Programming MCQ Test</li>
+                <li>Mock Test with Result</li>
+            </ul>
+            <a href="online-test.php" class="btn">Start Test Now</a>
+        </div>
+    </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="w3-center w3-dark-gray w3-padding">
-  <p>© 2026 ManasSir.in | All Rights Reserved</p>
+<footer class="footer">
+    <p>© 2026 Manas Sir Computer Classes. All Rights Reserved.</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
-
-
